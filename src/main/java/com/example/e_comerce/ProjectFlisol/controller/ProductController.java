@@ -34,13 +34,13 @@ public class ProductController {
     }
 
 
-    @DeleteMapping("/{id")
+    @DeleteMapping("/{id}")
     public String delete(@PathVariable Long id){
         service.delete(id);
         return "Producto eliminado";
     }
 
-    @PutMapping("/{id")
+    @PutMapping("/{id}")
     public Product update(@PathVariable long id, @RequestBody Product product){
         return service.update(id, product);
     }
