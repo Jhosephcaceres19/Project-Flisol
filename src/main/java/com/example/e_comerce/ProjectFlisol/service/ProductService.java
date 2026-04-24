@@ -21,19 +21,22 @@ public class ProductService {
     public Product save(Product product){
         return repository.save(product);
     }
+
     public void delete(Long id){
         if (!repository.existsById(id)) {
             throw new RuntimeException("Producto no encontrado con id" + id);
         }
         repository.deleteById(id);
     }
+
+
     public Product update(Long id, Product product){
     Product existing = repository.findById(id)
         .orElseThrow(() -> new RuntimeException("Producto no encontrado"));
 
-    existing.setName(product.getName());
-    existing.setPrice(product.getPrice());
+        existing.setName(product.getName());
+        existing.setPrice(product.getPrice());
 
-    return repository.save(existing);
-}
+        return repository.save(existing);
+    }
 }
